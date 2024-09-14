@@ -1,0 +1,25 @@
+e.g. file struc [angas neto] 
+
+com/auction/
+│
+├── Main.java                  # Entry point of the system
+├── AuctionSystem.java         # Main class to manage and launch the auction system
+│
+├── admin/                     # Package for Admin-related classes
+│   ├── AdminPanel.java        # Admin panel UI for managing items and auctions
+│   ├── AuctionItem.java       # Model class representing an auction item
+│   ├── AuctionManager.java    # Class to handle auction logic and item management
+│   └── ErrorHandler.java      # Class for handling and displaying error messages
+│
+├── customer/                  # Package for Customer-related classes
+│   ├── CustomerPanel.java     # Customer panel UI for placing bids and viewing items
+│   ├── Bid.java               # Model class representing a bid
+│   ├── BidManager.java        # Class to handle bid logic and management
+│   └── ErrorHandler.java      # Class for handling and displaying error messages
+│
+└── util/                      # Package for utility classes
+    ├── AuctionTimer.java      # Timer class to manage auction countdown and log-in
+    ├── ImageUploader.java     # Utility class for image upload and handling
+    └── UIHelper.java          # Utility class for common UI operations and helpers
+
+tots?
