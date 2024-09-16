@@ -1,11 +1,9 @@
 package com.dsa.admin;
 
-import java.awt.BorderLayout;
-
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;  
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import com.dsa.AuctionSystem; // Connectivity Overall SUPEFAST
 import com.dsa.WelcomeFrame;
@@ -17,13 +15,21 @@ import com.dsa.WelcomeFrame;
  * - CLOSE Panel -> Button
  * - VISIABLE Table Lists -> Table
  */
-public class AdminPanel extends JPanel {
+public class AdminPanel extends JFrame {
 
     private AuctionManager manager;
+    private AuctionManager auctionManager;
+    private JTextField itemNameField, priceField;
+    private JLabel imageLabel;
+    private JButton addButton, startAuctionButton, closeButton;
+    private JTable auctionTable;
+    private ImageIcon selectedImage;
 
-    public AdminPanel(AuctionSystem system) {
-        setLayout(new BorderLayout());
-        this.manager = new AuctionManager();
+    public AdminPanel() {
+        
+        auctionManager = new AuctionManager()
+
+        
 
         // Swing Main Components INIT
         JPanel controlPanel = new JPanel();
