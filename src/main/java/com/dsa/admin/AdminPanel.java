@@ -30,6 +30,7 @@ import com.dsa.WelcomeFrame;
 public class AdminPanel extends JFrame {
 
     // Initialization Here -->
+
     private AuctionManager auctionManager;
     private JTextField itemNameField, priceField;
     private JLabel imageLabel;

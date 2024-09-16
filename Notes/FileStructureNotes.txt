@@ -23,3 +23,31 @@ com/dsa/
     └── UIHelper.java          # Utility class for common UI operations and helpers
 
 tots?
+
+Changes of Plan -->
+
+com/auction/
+│
+├── Main.java                        # Entry point of the system
+├── AuctionSystem.java               # Main class to manage and launch the auction system
+│
+├── admin/                           # Package for Admin-related classes
+│   ├── AdminPanel.java              # Admin panel UI for managing items and auctions as Admin ofc
+│   ├── AuctionItem.java             # Model class representing an auction item
+│   ├── AuctionManager.java          # Class to handle auction logic and item management
+│
+├── customer/                        # Package for Customer-related classes
+│   ├── CustomerPanel.java           # Customer panel UI for placing bids and viewing items
+│   ├── Bid.java                     # Model class representing a bid
+│   ├── BidManager.java              # Class to handle bid logic and management
+│
+├── util/                            # Package for utility classes
+│   ├── AuctionTimer.java            # Timer class to manage auction countdown and log-in
+│   ├── ImageUploader.java           # Utility class for image upload and handling
+│   ├── UIHelper.java                # Utility class for common UI operations and helpers
+│   └── ErrorHandler.java            # General class for handling and displaying error messages
+│
+└── controller/                      # Package for Controller classes (Separation of Logic)
+    ├── AdminController.java         # Controller to handle admin-related operations
+    ├── CustomerController.java      # Controller to handle customer-related operations
+    └── AuctionController.java       # Controller to manage overall auction flow (start, reset, tie handling)
