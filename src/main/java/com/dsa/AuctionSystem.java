@@ -1,27 +1,35 @@
 package com.dsa;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
+import com.dsa.admin.AdminPanel;
+import com.dsa.customer.CustomerPanel;
 
 public class AuctionSystem {
-    private JFrame frame;
 
-    public void initialize() {
-        frame = new JFrame("Auction System");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-        frame.setLocationRelativeTo(null);
+    private AdminPanel adminPanel;
+    private CustomerPanel customerPanel;
+    private WelcomeFrame welcomeFrame;
 
-        // PRINT the Welcome Frame
-        WelcomeFrame welcomeFrame = new WelcomeFrame(this);
-        frame.setContentPane(welcomeFrame);
-        frame.setVisible(true);
+    public AuctionSystem() {
+
+        this.welcomeFrame = new WelcomeFrame(this);
+        this.adminPanel = new AdminPanel(this);
+        this.customerPanel = new CustomerPanel(this);
     }
 
-    public void showPanel(JPanel panel) {
-        frame.setContentPane(panel);
-        frame.revalidate();
-        frame.repaint();
+    public void lunch() {
+        welcomeFrame.showWelcomeScreen();
+    }
+
+    public void showAdminPanel() {
+        welcomeFrame.setVisible(false);
+        // customerPanel.showCustomerPanel();
+    }
+
+    public void returnToWelcomeScreen() {
+        adminPanel.setVisible(false);
+        customerPanel.setVisible(false);
+        welcomeFrame.setVisible(true);
     }
 }
+
 

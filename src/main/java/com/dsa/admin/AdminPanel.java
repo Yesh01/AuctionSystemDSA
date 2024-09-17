@@ -24,7 +24,7 @@ public class AdminPanel extends JPanel {
     private AuctionController auctionController;
 
     public AdminPanel(AuctionSystem system) {
-        this.auctionController = system;
+        // this.auctionController = system;
 
         // Layout setup
         setLayout(new BorderLayout());

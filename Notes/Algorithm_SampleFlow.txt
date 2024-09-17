@@ -125,7 +125,7 @@ Summary of Key IFs
 
 Updated Algorithm:
 
-Based on our previous discussion, I've made some updates to the algorithm to include the new controller classes and database integration. Here's the updated algorithm:
+I've made some updates to the algorithm to include the new controller classes and database integration. Here's the updated algorithm:
 Auction System Algorithm Flow
 1. Start Screen
 
