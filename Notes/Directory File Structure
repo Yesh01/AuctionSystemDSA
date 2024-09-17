@@ -26,14 +26,16 @@ tots?
 
 Changes of Plan -->
 
-com/auction/
+main/java/com/dsa
 │
 ├── Main.java                        # Entry point of the system
 ├── AuctionSystem.java               # Main class to manage and launch the auction system
+├── WelcomeFrame.java                # Welcome screen where the user selects Admin or Customer
 │
 ├── admin/                           # Package for Admin-related classes
-│   ├── AdminPanel.java              # Admin panel UI for managing items and auctions as Admin ofc
+│   ├── AdminPanel.java              # Admin panel UI for managing items and auctions
 │   ├── AuctionItem.java             # Model class representing an auction item
+│   ├── Auction.java                 # Model class representing an auction
 │   ├── AuctionManager.java          # Class to handle auction logic and item management
 │
 ├── customer/                        # Package for Customer-related classes

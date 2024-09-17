@@ -18,10 +18,10 @@ public class AuctionSystem {
         frame.setVisible(true);
     }
 
-    // FUNC to switch to Admin or Customer Panel
     public void showPanel(JPanel panel) {
         frame.setContentPane(panel);
         frame.revalidate();
         frame.repaint();
     }
 }
+
