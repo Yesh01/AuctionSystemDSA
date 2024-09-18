@@ -2,18 +2,13 @@ package com.dsa.admin;
 
 import com.dsa.AuctionSystem;
 import com.dsa.controller.AuctionController;
-import com.dsa.util.ImageUploader;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.time.Year;
 
-public class AdminPanel extends JPanel {
+public class AdminPanel extends JFrame {
 
     private AuctionSystem auctionSystem;
     private AuctionController auctionController;
@@ -26,14 +21,15 @@ public class AdminPanel extends JPanel {
     public AdminPanel(AuctionSystem auctionSystem) {
 
         this.auctionSystem = auctionSystem;
-        this.auctionController = auctionController;
+        this.auctionController = new AuctionController();
 
         
         setTitle("Admin Panel");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocation(null);
+        setLocationRelativeTo(null);
 
+        
         dfComponents();
 
     }
