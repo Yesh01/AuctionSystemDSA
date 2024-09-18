@@ -6,139 +6,121 @@ import com.dsa.util.ImageUploader;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.time.Year;
 
 public class AdminPanel extends JPanel {
+
+    private AuctionSystem auctionSystem;
+    private AuctionController auctionController;
+
     private JTextField itemNameField;
     private JTextField startingPriceField;
     private JLabel imageLabel;
-    private JButton addItemButton;
-    private JButton startAuctionButton;
-    private JButton closePanelButton;
-    private JTable itemTable;
-    private DefaultTableModel tableModel;
+    private JTable auctionTable;
 
-    private AuctionController auctionController;
+    public AdminPanel(AuctionSystem auctionSystem) {
 
-    public AdminPanel(AuctionSystem system) {
-        // this.auctionController = system;
+        this.auctionSystem = auctionSystem;
+        this.auctionController = auctionController;
 
-        // Layout setup
-        setLayout(new BorderLayout());
+        
+        setTitle("Admin Panel");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocation(null);
 
-        // Create the left side panel for input fields
+        dfComponents();
+
+    }
+
+    public void dfComponents(){
+
         JPanel leftPanel = new JPanel();
-        leftPanel.setLayout(new GridLayout(5, 2, 10, 10));
+        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
 
-        // Item Name input
-        leftPanel.add(new JLabel("Item Name:"));
-        itemNameField = new JTextField();
+        JLabel itemNamePanel = new JLabel("Item Name: ");
+        itemNameField = new JTextField(20);
+
+        JLabel startingPriceJLabel = new JLabel("Starting Price: ");
+        startingPriceField = new JTextField(20);
+
+        JButton imageUploadButton = new JButton("Upload Image");
+        imageLabel = new JLabel("No Image Uploaded");
+
+        JButton addItemButton = new JButton("Add Item");
+        JButton startAuctionButton = new JButton("Start Auction");
+        JButton closeButton = new JButton("Close Panel");
+
+        // UI Components in the [LEFT SIDE] --->
+
+        // leftPanel.add(itemNameLabel);
         leftPanel.add(itemNameField);
-
-        // Starting Price input
-        leftPanel.add(new JLabel("Starting Price:"));
-        startingPriceField = new JTextField();
+        leftPanel.add(startingPriceJLabel);
         leftPanel.add(startingPriceField);
-
-        // Image upload
-        leftPanel.add(new JLabel("Upload Image:"));
-        imageLabel = new JLabel();
-        JButton uploadButton = new JButton("Upload Image");
-        uploadButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                File imageFile = ImageUploader.uploadImage();
-                if (imageFile != null) {
-                    imageLabel.setText(imageFile.getName());
-                    // Handle image upload, possibly store the image path for future use
-                }
-            }
-        });
-        leftPanel.add(uploadButton);
-
-        // Buttons for adding item and starting auction
-        addItemButton = new JButton("Add Item");
-        startAuctionButton = new JButton("Start Auction");
-        closePanelButton = new JButton("Close Panel");
-
+        leftPanel.add(imageUploadButton);
         leftPanel.add(addItemButton);
         leftPanel.add(startAuctionButton);
-        leftPanel.add(closePanelButton);
+        leftPanel.add(closeButton);
 
-        add(leftPanel, BorderLayout.WEST);
+        // --> Table UI 
 
-        // Table setup for right panel
-        String[] columnNames = {"Item Name", "Image", "Starting Price", "Bidder Name", "Sold At"};
-        tableModel = new DefaultTableModel(columnNames, 0);
-        itemTable = new JTable(tableModel);
-        JScrollPane scrollPane = new JScrollPane(itemTable);
-        add(scrollPane, BorderLayout.CENTER);
+        auctionTable = new JTable(); // TO-DO Set-up Table to Display Items & Bids.
+        JScrollPane scrollPane = new JScrollPane(auctionTable);
 
-        // Button actions
+        // All Action Listner --> 
         addItemButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addItem();
+            public void actionPerformed(ActionEvent y) {
+                // handledAddItem();
             }
         });
 
         startAuctionButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                startAuction();
+            public void actionPerformed(ActionEvent y) {
+                // handleStartAuction();
             }
         });
 
-        closePanelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                closePanel();
+        closeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent y) {
+                auctionSystem.returnToWelcomeScreen();
             }
         });
+
+        imageUploadButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent y) {
+                // handleImageUpload();
+            }
+        });
+
+        // ----------> Main Layout [ Admin Panel ]
+        
+        setLayout(new BorderLayout());
+        add(leftPanel, BorderLayout.WEST);
+        add(scrollPane, BorderLayout.CENTER);
+
     }
 
-    private void addItem() {
-        String itemName = itemNameField.getText();
-        String startingPriceStr = startingPriceField.getText();
-        String imageFileName = imageLabel.getText();
+    // -----------> Functionality 
 
-        if (itemName.isEmpty() || startingPriceStr.isEmpty() || imageFileName.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please fill out the required fields.");
-            return;
-        }
+    private void handledAddItem(){
 
-        try {
-            double startingPrice = Double.parseDouble(startingPriceStr);
-            auctionController.addItem(itemName, startingPrice, imageFileName);
-            tableModel.addRow(new Object[]{itemName, imageFileName, startingPrice, null, null});
-            JOptionPane.showMessageDialog(this, "Item added successfully.");
-            clearFields();
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Starting price must be a valid number.");
-        }
     }
 
-    private void startAuction() {
-        if (tableModel.getRowCount() == 0) {
-            JOptionPane.showMessageDialog(this, "No items to start auction.");
-            return;
-        }
-        // Start the auction logic
-        auctionController.startAuction();
-        JOptionPane.showMessageDialog(this, "Auction started successfully.");
+    private void handleStartAuction(){
+
     }
 
-    private void closePanel() {
-        // Logic to go back to the login panel or exit
-        auctionController.closeAdminPanel();
+    private void handleImageUpload(){
+
+    }
+    private void showAdminPanel(){
+        setVisible(true);
     }
 
-    private void clearFields() {
-        itemNameField.setText("");
-        startingPriceField.setText("");
-        imageLabel.setText("");
-    }
+
 }

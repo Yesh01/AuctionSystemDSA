@@ -1,47 +1,42 @@
+// main/java/com/dsa/customer/Bid.java
+
 package com.dsa.customer;
 
 public class Bid {
 
-    // Most Likely a Linked-list data Flow
+    private String bidderName;
+    private double bidPrice;
+    private int auctionItemId;
 
-        // Items in Bids Initialization
-
-        private int bidId;
-        private int itemId;
-        private String bidderName;
-        private double bidPrice;
-        private boolean isWinningBid;
-    
-        // Common Contruction Worker.
-
-        public Bid(int bidId, int itemId, String bidderName, double bidPrice) {
-    
-            this.bidId = bidId;
-            this.itemId = itemId;
-            this.bidderName = bidderName;
-            this.bidPrice = bidPrice;
-            this.isWinningBid = false;
-
-        }
-
-        //Retrieve & Update ->
-
-        public int getBidId() {
-            return bidId;
-        }
-    
-        public void setBidId(int bidId) {
-            this.bidId = bidId;
-        }
-
-        // [ Same ] Continue nlng gantong Logic sa iba pa. --->
-
-
-    @Override
-    public String toString() {
-
-        return "Bid [ bidId = " + bidId + ", itemId = " + itemId + ", bidderName = " + bidderName + ", bidPrice = " + bidPrice + 
-               ", isWinningBid = " + isWinningBid + "] ";
+    // Constructor for creating a new bid
+    public Bid(String bidderName, double bidPrice, int auctionItemId) {
+        this.bidderName = bidderName;
+        this.bidPrice = bidPrice;
+        this.auctionItemId = auctionItemId;
     }
 
+    // Getters and Setters for bid fields
+    public String getBidderName() {
+        return bidderName;
+    }
+
+    public void setBidderName(String bidderName) {
+        this.bidderName = bidderName;
+    }
+
+    public double getBidPrice() {
+        return bidPrice;
+    }
+
+    public void setBidPrice(double bidPrice) {
+        this.bidPrice = bidPrice;
+    }
+
+    public int getAuctionItemId() {
+        return auctionItemId;
+    }
+
+    public void setAuctionItemId(int auctionItemId) {
+        this.auctionItemId = auctionItemId;
+    }
 }

@@ -1,11 +1,8 @@
 package com.dsa;
-
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import com.dsa.admin.AdminPanel;
 import com.dsa.customer.CustomerPanel;
 
@@ -15,6 +12,7 @@ public class WelcomeFrame extends JFrame {
 
     public WelcomeFrame(AuctionSystem auctionSystem) {
 
+        // Chnaging from Method to Actual 1st Sequence to Read the Program.
         this.auctionSystem = auctionSystem;
         setTitle("Auction Online House - Welcome");
         setSize(400, 200);
@@ -22,11 +20,13 @@ public class WelcomeFrame extends JFrame {
         setLocationRelativeTo(null);
     }
 
+    // Reconstruction the Main UI as Show Main Screen Option --> 
     public void showWelcomeScreen() {
 
         JPanel panel = new JPanel();
         JLabel welcomPanel = new JLabel("[ :> ] Welcome to Auction Online House!");
 
+        // Main 2 Buttons for Options -->
         JButton adminButton = new JButton("Admin");
         JButton customerButton = new JButton("Customer");
 
@@ -44,6 +44,7 @@ public class WelcomeFrame extends JFrame {
             }
         }));
 
+        // Ease Print
         panel.add(welcomPanel);
         panel.add(adminButton);
         panel.add(customerButton);
