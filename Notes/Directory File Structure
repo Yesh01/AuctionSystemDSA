@@ -53,3 +53,42 @@ main/java/com/dsa
     ├── AdminController.java         # Controller to handle admin-related operations
     ├── CustomerController.java      # Controller to handle customer-related operations
     └── AuctionController.java       # Controller to manage overall auction flow (start, reset, tie handling)
+
+
+    main/java/com/dsa
+│
+├── Main.java                        # Done
+├── AuctionSystem.java               # Done
+├── WelcomeFrame.java                # Done
+│
+├── admin/
+│   ├── AdminPanel.java              # I dont think so
+│   ├── AuctionItem.java             # Done
+│   ├── Auction.java                 # I don't think so
+│   ├── AuctionManager.java          # Not yet
+│
+├── customer/                        #
+│   ├── CustomerPanel.java           # I don't think so
+│   ├── Bid.java                     # I don't think so
+│   ├── BidManager.java              # Not touch yet
+│                                    #
+└── controller/
+│   ├── AdminController.java         # Not touch yet
+│   ├── AuctionController.java       # I don't think so
+│   ├── BidController.java           # I don't think so
+│   ├── CustomerController.java      # Not touch yet
+│
+└── database/
+│   ├── DatabseConnector.java        # I don't think so
+│
+│
+├── util/
+│   ├── AuctionTimer.java            # I don't think soUSE
+│   ├── ImageUploader.java           # I dont't think so
+│   ├── UIHelper.java                # not touch yet
+│   └── ErrorHandler.java            # I don't think so
+│
+└── database/
+│   ├── AdminController.java         # I dont't think so
+│
+
